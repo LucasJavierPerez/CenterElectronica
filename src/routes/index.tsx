@@ -134,11 +134,10 @@ function Index() {
               Service oficial en Puerto Madryn desde el año 2000
             </div>
             <h1 className="text-5xl font-bold leading-[1.05] tracking-tight md:text-7xl">
-              Reparaciones que devuelven{" "}
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                la vida
-              </span>{" "}
-              a tu electrónica.
+              Somos {" "}
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent whitespace-nowrap">
+                Center Electrónica
+              </span>
             </h1>
             <p className="mt-6 max-w-xl text-lg text-muted-foreground">
               Taller especializado en TV LED Smart, audio y electrodomésticos. Trabajo minucioso,
