@@ -284,7 +284,7 @@ function Index() {
                     d: "Escribinos tu consulta",
                     link: "https://wa.me/5492804510950",
                   },
-                  { icon: Mail, t: "Email", d: "centerelectronica@gmail.com" },
+                  { icon: Mail, t: "Email", d: "ossojuan3@gmail.com" },
                 ].map((c) => (
                   <div key={c.t} className="flex gap-4">
                     <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
