@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { toast } from "sonner";
 import {
   Volume2,
   Tv,
@@ -63,6 +64,31 @@ const stats = [
 ];
 
 function Index() {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("https://formspree.io/f/ossojuan3@gmail.com", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        toast.success("¡Gracias! Te contactaremos pronto.");
+        form.reset();
+      } else {
+        toast.error("Hubo un error al enviar el mensaje. Por favor intenta de nuevo.");
+      }
+    } catch (error) {
+      toast.error("Hubo un error al enviar el mensaje. Por favor intenta de nuevo.");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       {/* Nav */}
@@ -316,32 +342,30 @@ function Index() {
           <Card className="p-8 shadow-[var(--shadow-card)]">
             <h3 className="text-xl font-semibold">Envianos un mensaje</h3>
             <p className="mt-1 text-sm text-muted-foreground">Te respondemos a la brevedad.</p>
-            <form
-              className="mt-6 space-y-4"
-              onSubmit={(e) => {
-                e.preventDefault();
-                alert("¡Gracias! Te contactaremos pronto.");
-              }}
-            >
+            <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
               <div className="grid gap-4 sm:grid-cols-2">
                 <input
                   required
+                  name="nombre"
                   placeholder="Nombre"
                   className="rounded-lg border border-input bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
                 />
                 <input
                   required
                   type="email"
+                  name="email"
                   placeholder="Email"
                   className="rounded-lg border border-input bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
                 />
               </div>
               <input
+                name="equipo"
                 placeholder="Equipo a reparar (ej. TV Philips 43”)"
                 className="w-full rounded-lg border border-input bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
               />
               <textarea
                 required
+                name="mensaje"
                 rows={5}
                 placeholder="Contanos qué problema tiene tu equipo..."
                 className="w-full resize-none rounded-lg border border-input bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
