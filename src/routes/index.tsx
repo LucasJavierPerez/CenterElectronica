@@ -64,29 +64,18 @@ const stats = [
 ];
 
 function Index() {
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const form = e.currentTarget;
-    const formData = new FormData(form);
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
 
-    try {
-      const response = await fetch("https://formspree.io/f/ossojuan3@gmail.com", {
-        method: "POST",
-        body: formData,
-        headers: {
-          Accept: "application/json",
-        },
-      });
+    const phoneNumber = "5492804510950";
+    const text = `Hola Center Electrónica! 👋\n\n*Nuevo mensaje de contacto*\n\n*Nombre:* ${data.nombre}\n*Email:* ${data.email}\n*Equipo:* ${data.equipo || "No especificado"}\n*Mensaje:* ${data.mensaje}`;
 
-      if (response.ok) {
-        toast.success("¡Gracias! Te contactaremos pronto.");
-        form.reset();
-      } else {
-        toast.error("Hubo un error al enviar el mensaje. Por favor intenta de nuevo.");
-      }
-    } catch (error) {
-      toast.error("Hubo un error al enviar el mensaje. Por favor intenta de nuevo.");
-    }
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
+    window.open(whatsappUrl, "_blank");
+    
+    toast.success("Abriendo WhatsApp...");
   };
 
   return (
