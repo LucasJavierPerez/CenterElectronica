@@ -39,7 +39,8 @@ const services = [
     icon: Tv,
     image: tvImg,
     title: "Reparación de TV LED & Smart",
-    desc: "Service oficial Philips, Philco, Noblex, Sanyo, Aiwa, Hitachi, TCL, RCA, Hisense, AOC. Garantías extendidas Cardif y Assurant.",
+    desc: "Service oficial de TV LED Smart con garantías extendidas Cardif y Assurant.",
+    official: "Philips, Philco, Noblex, Sanyo, Aiwa, Hitachi, TCL, RCA, Hisense, AOC"
   },
   {
     icon: Volume2,
@@ -53,7 +54,7 @@ const services = [
     image: appliancesImg,
     title: "Electrodomésticos",
     desc: "Pequeños electrodomésticos con repuestos originales.",
-    official: "Toda la línea Philips, Atma, VGH, Daewoo.",
+    official: "Toda la línea Philips, Atma, BgH.",
   },
 ];
 
