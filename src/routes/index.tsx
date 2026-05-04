@@ -15,10 +15,27 @@ import {
   Award,
   Cpu,
 } from "lucide-react";
+
+// Assets
 import heroImg from "@/assets/hero-circuit.jpg";
 import tvImg from "@/assets/service-tv.jpg";
 import audioImg from "@/assets/service-audio.jpg";
 import appliancesImg from "@/assets/service-appliances.jpg";
+
+// Brand Logos
+import philipsLogo from "@/assets/brands/philips.svg";
+import philcoLogo from "@/assets/brands/philco.svg";
+import noblexLogo from "@/assets/brands/noblex.svg";
+import sanyoLogo from "@/assets/brands/sanyo.svg";
+import aiwaLogo from "@/assets/brands/aiwa.svg";
+import hitachiLogo from "@/assets/brands/hitachi.svg";
+import tclLogo from "@/assets/brands/tcl.svg";
+import rcaLogo from "@/assets/brands/rca.svg";
+import hisenseLogo from "@/assets/brands/hisense.svg";
+import aocLogo from "@/assets/brands/aoc.svg";
+import atmaLogo from "@/assets/brands/atma.svg";
+import bghLogo from "@/assets/brands/bgh.svg";
+import daewooLogo from "@/assets/brands/daewoo.svg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -39,7 +56,7 @@ const services = [
     icon: Tv,
     image: tvImg,
     title: "Reparación de TV LED & Smart",
-    desc: "Service oficial de TV LED Smart con garantías extendidas Cardif y Assurant.",
+    desc: "Garantías extendidas Cardif y Assurant.",
     official: "Philips, Philco, Noblex, Sanyo, Aiwa, Hitachi, TCL, RCA, Hisense, AOC"
   },
   {
@@ -54,7 +71,7 @@ const services = [
     image: appliancesImg,
     title: "Electrodomésticos",
     desc: "Pequeños electrodomésticos con repuestos originales.",
-    official: "Toda la línea Philips, Atma, BgH.",
+    official: "Toda la línea Philips, Atma, BGH.",
   },
 ];
 
@@ -62,6 +79,22 @@ const stats = [
   { value: "+25", label: "Años de experiencia" },
   { value: "15+", label: "Marcas oficiales" },
   { value: "100%", label: "Diagnóstico garantizado" },
+];
+
+const brands = [
+  { name: "Philips", logo: philipsLogo },
+  { name: "Philco", logo: philcoLogo },
+  { name: "Noblex", logo: noblexLogo },
+  { name: "Sanyo", logo: sanyoLogo },
+  { name: "Aiwa", logo: aiwaLogo },
+  { name: "Hitachi", logo: hitachiLogo },
+  { name: "TCL", logo: tclLogo },
+  { name: "RCA", logo: rcaLogo },
+  { name: "Hisense", logo: hisenseLogo },
+  { name: "AOC", logo: aocLogo },
+  { name: "Atma", logo: atmaLogo },
+  { name: "BGH", logo: bghLogo },
+  { name: "Daewoo", logo: daewooLogo },
 ];
 
 function Index() {
@@ -208,6 +241,29 @@ function Index() {
               </div>
             </Card>
           ))}
+        </div>
+      </section>
+
+      {/* Brands */}
+      <section className="bg-secondary/20 py-16 border-y border-border/50">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="text-center mb-12">
+            <p className="text-sm font-medium uppercase tracking-wider text-primary mb-2">
+              Confianza oficial
+            </p>
+            <h2 className="text-3xl font-bold tracking-tight">Trabajamos con las principales marcas</h2>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-y-12 gap-x-8 items-center justify-items-center">
+            {brands.map((brand) => (
+              <div key={brand.name} className="group relative flex items-center justify-center w-full">
+                <img
+                  src={brand.logo}
+                  alt={`Logo de ${brand.name}`}
+                  className="h-8 md:h-10 w-auto object-contain grayscale opacity-60 transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
